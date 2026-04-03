@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Competition Quadcopter — E Akash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Oxanium:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <a href="../index.html#projects" class="doc-back">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+
+  <div class="doc-hero" style="background-image: url('../Images/projects/Competition%20Quadcopter.jpg')">
+    <div class="doc-hero-overlay"></div>
+    <div class="doc-hero-inner">
+      <p class="section-label">// project</p>
+      <h1 class="doc-hero-title">Competition Quadcopter</h1>
+      <p class="doc-hero-sub">Competition-grade quadcopter built for SAE Aerothon — carbon fiber frame, PIXHAWK flight controller, waterjet-cut components.</p>
+      <div class="doc-hero-tags">
+        <span class="tag tag-green">Drones</span>
+        <span class="tag tag-blue">CAD</span>
+        <span class="tag tag-amber">Competition</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+    <div class="doc-container">
+
+      <section class="doc-section">
+        <p class="section-label">// overview</p>
+        <h2 class="doc-heading">Overview</h2>
+        <p class="doc-text">This project focused on designing, building, and flying a quadcopter for the SAE Aerothon competition. The goal was to learn the fundamentals of quadcopter design and systems integration — covering aerodynamics, flight dynamics, and hands-on manufacturing. It was my entry point into the world of drone engineering.</p>
+        <p class="doc-text" style="margin-top:16px">Every component — from the carbon fiber frame to the flight controller tuning — was approached with a competition mindset: lightweight, reliable, and flight-ready.</p>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// specs</p>
+        <h2 class="doc-heading">Technical Specifications</h2>
+        <div class="doc-spec-grid">
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Frame Material</span>
+            <span class="doc-spec-val">Carbon Fiber tubes &amp; sheets</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Flight Controller</span>
+            <span class="doc-spec-val">PIXHAWK 2.4.8</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Ground Station</span>
+            <span class="doc-spec-val">Mission Planner</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">RC System</span>
+            <span class="doc-spec-val">Radiomaster Transmitter</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Design Software</span>
+            <span class="doc-spec-val">Fusion 360</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Analysis</span>
+            <span class="doc-spec-val">ANSYS Structural</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Fabrication</span>
+            <span class="doc-spec-val">Waterjet cutting, 3D printing</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Telemetry</span>
+            <span class="doc-spec-val">915 MHz telemetry module</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="doc-two-col">
+          <div>
+            <p class="section-label">// features</p>
+            <h2 class="doc-heading">Key Features</h2>
+            <ul class="doc-list">
+              <li>Lightweight carbon fiber frame construction</li>
+              <li>Custom 3D-printed connector and mount parts</li>
+              <li>Precision waterjet-cut plates for structural accuracy</li>
+              <li>Telemetry for real-time flight monitoring</li>
+              <li>PIXHAWK-based stabilization and autonomous modes</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">// learnings</p>
+            <h2 class="doc-heading">Key Learnings</h2>
+            <ul class="doc-list">
+              <li>Full drone design-build-fly cycle from scratch</li>
+              <li>Flight controller tuning and PID optimization</li>
+              <li>Weight management with composite materials</li>
+              <li>Systems integration: electronics, structure, firmware</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// gallery</p>
+        <h2 class="doc-heading">Gallery</h2>
+        <div class="doc-gallery">
+          <img src="Images/Project_images/Drone-1/Screenshot%202024-06-13%20003144.png" alt="CAD Simulation View 1" class="doc-gallery-img">
+          <img src="Images/Project_images/Drone-1/Screenshot%202024-06-13%20003159.png" alt="CAD Simulation View 2" class="doc-gallery-img">
+          <img src="Images/Project_images/Drone-1/Screenshot%202024-06-13%20003235.png" alt="CAD Simulation View 3" class="doc-gallery-img">
+        </div>
+        <video class="doc-video" controls preload="metadata">
+          <source src="Videos/Drone-1(2).mp4" type="video/mp4">
+        </video>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Edamana Akash. Built with curiosity.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.doc-gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        const lb = document.createElement('div');
+        lb.className = 'doc-lightbox';
+        lb.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+        document.body.appendChild(lb);
+        lb.addEventListener('click', () => lb.remove());
+      });
+    });
+  </script>
+
+</body>
+</html>
