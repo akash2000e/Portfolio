@@ -68,9 +68,7 @@ section {
   padding: 100px 0;
 }
 
-section:nth-child(even) {
-  background-color: #111111;
-}
+/* Section backgrounds are set explicitly per-section */
 
 /* =============================================
    FADE-IN (Intersection Observer)
@@ -101,12 +99,28 @@ section:nth-child(even) {
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
   background: #39ff14;
   color: #0a0a0a;
+}
+
+.btn-ghost {
+  border-color: #333;
+  color: #666;
+}
+
+.btn-ghost:hover {
+  background: #333;
+  color: #e0e0e0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* =============================================
@@ -454,6 +468,13 @@ section:nth-child(even) {
   bottom: 8px;
   width: 1px;
   background: #1e1e1e;
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline.draw-line::before {
+  transform: scaleY(1);
 }
 
 .timeline-item {
@@ -575,7 +596,7 @@ a.project-card:hover {
 }
 
 a.project-card:hover .card-img {
-  filter: grayscale(60%) brightness(0.65) contrast(1.1);
+  filter: grayscale(0%) brightness(0.85) contrast(1.05);
 }
 
 .card-img-fallback {
@@ -732,6 +753,16 @@ a.project-card:hover .card-img {
 .form-group textarea:focus {
   border-color: #39ff14;
 }
+
+.form-status {
+  font-family: 'Oxanium', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  min-height: 20px;
+}
+
+.form-status.success { color: #39ff14; }
+.form-status.error   { color: #ff4b4b; }
 
 /* Contact links */
 .contact-intro {
@@ -1043,6 +1074,14 @@ footer p {
     bottom: 16px;
   }
 
+  .bottom-nav {
+    max-width: calc(100vw - 32px);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bottom-nav::-webkit-scrollbar { display: none; }
+
   .nav-links {
     height: 44px;
     padding: 0 4px;
@@ -1050,7 +1089,7 @@ footer p {
 
   .nav-links a {
     font-size: 9px;
-    padding: 6px 12px;
+    padding: 6px 10px;
     letter-spacing: 1px;
   }
 
@@ -1063,6 +1102,10 @@ footer p {
 
   .hero-content {
     text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 
   .hero-photo {
@@ -1107,4 +1150,99 @@ footer p {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+}
+
+/* =============================================
+   SCROLL PROGRESS BAR
+   ============================================= */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #39ff14;
+  z-index: 2000;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.6), 0 0 2px rgba(57, 255, 20, 0.8);
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* =============================================
+   TYPEWRITER CURSOR
+   ============================================= */
+.type-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.8em;
+  background: #e0e0e0;
+  margin-left: 6px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: blink 0.85s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* =============================================
+   SECTION BACKGROUND NUMBERS
+   ============================================= */
+.section-heading {
+  position: relative;
+  overflow: visible;
+}
+
+.section-heading[data-num]::before {
+  content: attr(data-num);
+  position: absolute;
+  font-family: 'VT323', monospace;
+  font-size: 220px;
+  color: #39ff14;
+  opacity: 0.04;
+  line-height: 1;
+  right: -8px;
+  top: -70px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =============================================
+   STAGGERED CHILDREN
+   ============================================= */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+[data-stagger] > *.stagger-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   SKILL PILL — hover glow
+   ============================================= */
+.pill {
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.pill:hover {
+  border-color: rgba(57, 255, 20, 0.4);
+  color: #c0e8a0;
+  background: rgba(57, 255, 20, 0.06);
+}
+
+/* =============================================
+   BTN — magnetic hover glow
+   ============================================= */
+.btn:hover {
+  box-shadow: 0 8px 28px rgba(57, 255, 20, 0.18);
+}
+
+.btn-ghost:hover {
+  box-shadow: 0 8px 28px rgba(120, 120, 120, 0.1);
 }

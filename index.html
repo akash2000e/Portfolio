@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E Akash — Portfolio</title>
+  <meta name="description" content="Edamana Akash — Mechanical Engineer & Maker based in Kerala. Specialising in drones, robotics, digital fabrication, and CAD. Fab Academy 2025 graduate." />
+  <meta property="og:title" content="E Akash — Portfolio" />
+  <meta property="og:description" content="Mechanical Engineer & Maker. Drones, robotics, digital fabrication, and CAD." />
+  <meta property="og:image" content="Images/Profile_Pic.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="E Akash — Portfolio" />
+  <meta name="twitter:description" content="Mechanical Engineer & Maker. Drones, robotics, digital fabrication, and CAD." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2339ff14'/></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +22,13 @@
 </head>
 <body>
 
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <!-- FLOATING BOTTOM NAV -->
   <nav class="bottom-nav">
     <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -36,7 +48,10 @@
         </h1>
         <h2 class="hero-title">Engineer &amp; Maker</h2>
         <p class="hero-tagline">Engineer by training, maker by passion.</p>
-        <a href="#projects" class="btn">View My Work</a>
+        <div class="hero-actions">
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="E-Akash-Resume.pdf" download class="btn btn-ghost">Download CV</a>
+        </div>
       </div>
       <div class="hero-photo">
         <img src="Images/Profile_Pic.jpg" alt="Akash Edamana" />
@@ -48,7 +63,7 @@
   <section id="about" class="fade-in">
     <div class="container">
       <p class="section-label">// about</p>
-      <h2 class="section-heading">About</h2>
+      <h2 class="section-heading" data-num="01">About</h2>
       <div class="about-text">
         <p>I'm a mechanical engineer based in Kerala, currently working as a Technology Fellow at Kerala Startup Mission in Kochi. I've worked on drones, IoT systems, and machine building — from ideation all the way to physical prototypes. A Fab Academy graduate, I love the full process — designing in CAD, getting hands dirty in the fab lab, and figuring out problems as they come. Always building something.</p>
         <div class="about-edu">
@@ -67,8 +82,8 @@
   <section id="skills" class="fade-in">
     <div class="container">
       <p class="section-label">// skills</p>
-      <h2 class="section-heading">Skills</h2>
-      <div class="skills-grid">
+      <h2 class="section-heading" data-num="02">Skills</h2>
+      <div class="skills-grid" data-stagger>
 
         <div class="skill-card">
           <h3 class="skill-category">CAD &amp; Design</h3>
@@ -96,6 +111,10 @@
           <div class="skill-pills">
             <span class="pill">PCB Design</span>
             <span class="pill">Basic Electronics</span>
+            <span class="pill">Arduino</span>
+            <span class="pill">ESP32</span>
+            <span class="pill">Flight Controllers</span>
+            <span class="pill">Embedded C</span>
           </div>
         </div>
 
@@ -104,6 +123,10 @@
           <div class="skill-pills">
             <span class="pill">Project Development</span>
             <span class="pill">Project Management</span>
+            <span class="pill">R&amp;D</span>
+            <span class="pill">Drone Systems</span>
+            <span class="pill">Simulation</span>
+            <span class="pill">Technical Documentation</span>
           </div>
         </div>
 
@@ -115,8 +138,8 @@
   <section id="experience" class="fade-in">
     <div class="container">
       <p class="section-label">// work</p>
-      <h2 class="section-heading">Experience</h2>
-      <div class="timeline">
+      <h2 class="section-heading" data-num="03">Experience</h2>
+      <div class="timeline" data-stagger>
 
         <div class="timeline-item">
           <div class="timeline-dot green"></div>
@@ -204,9 +227,9 @@
   <!-- PROJECTS SECTION -->
   <section id="projects" class="fade-in">
     <div class="container">
-      <p class="section-label">// work</p>
-      <h2 class="section-heading">Projects</h2>
-      <div class="projects-grid">
+      <p class="section-label">// projects</p>
+      <h2 class="section-heading" data-num="04">Projects</h2>
+      <div class="projects-grid" data-stagger>
 
         <!-- 1. POMO Lamp -->
         <a href="https://www.hackster.io/akashedamana/pomo-lamp-333d67" target="_blank" rel="noopener" class="project-card">
@@ -399,10 +422,11 @@
   <section id="contact" class="fade-in">
     <div class="container">
       <p class="section-label">// contact</p>
-      <h2 class="section-heading">Get in Touch</h2>
+      <h2 class="section-heading" data-num="05">Get in Touch</h2>
       <div class="contact-grid">
 
-        <form class="contact-form" action="mailto:akashedamana@gmail.com" method="POST" enctype="text/plain">
+        <!-- Replace YOUR_FORM_ID below with your Formspree form ID (free at formspree.io) -->
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -415,7 +439,8 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn" id="form-submit-btn">Send Message</button>
+          <p class="form-status" id="form-status" aria-live="polite"></p>
         </form>
 
         <div class="contact-links">
@@ -472,7 +497,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Edamana Akash. Built with curiosity.</p>
+    <p id="footer-copy">© 2025 Edamana Akash. Built with curiosity.</p>
   </footer>
 
   <script src="script.js"></script>
