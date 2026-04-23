@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>FAB LAB Tasks Tracker — E Akash</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2339ff14'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Oxanium:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <a href="../index.html#webtools" class="doc-back">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+
+  <div class="doc-hero" style="background: linear-gradient(135deg, #030d0a 0%, #051a10 60%, #0a0a0a 100%);">
+    <div class="doc-hero-overlay"></div>
+    <div class="doc-hero-inner">
+      <p class="section-label">// team tool</p>
+      <h1 class="doc-hero-title">FAB LAB Tasks Tracker</h1>
+      <p class="doc-hero-sub">Built for me and my colleagues at FAB LAB to track work progress — a shared Gantt dashboard on the lab TV, and a personal task page for each team member.</p>
+      <div class="doc-hero-tags">
+        <span class="tag tag-green">Web App</span>
+        <span class="tag tag-blue">Firebase</span>
+        <span class="tag tag-amber">Vanilla JS</span>
+      </div>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/akash2000e/FAB_Tasks_Tracker" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+    <div class="doc-container">
+
+      <section class="doc-section">
+        <p class="section-label">// why it exists</p>
+        <h2 class="doc-heading">Why I Built It</h2>
+        <p class="doc-text">At FAB LAB, our team was juggling multiple projects with no shared view of who was working on what, what was done, and what was blocked. Work was tracked informally — in messages, sticky notes, or just kept in people's heads. Things slipped through.</p>
+        <p class="doc-text" style="margin-top:16px">I built this so everyone on the team could see the full picture at a glance. A TV screen in the lab runs the dashboard permanently — it shows a live Gantt chart of all ongoing tasks, cycles through team views, and updates in real time as people log progress from their own devices. No more asking "what's the status on that?" — the TV tells you.</p>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// what it does</p>
+        <h2 class="doc-heading">What It Does</h2>
+        <div class="doc-two-col">
+          <div>
+            <p class="section-label">// tv dashboard</p>
+            <ul class="doc-list">
+              <li>Gantt chart showing all team tasks with dependency arrows, colour-coded by person</li>
+              <li>Auto-cycles between views: Timeline, Team, Completed This Week, Needs Attention</li>
+              <li>Live clock and sync status indicator</li>
+              <li>Updates in real time from Firebase — no refresh needed</li>
+              <li>Wake Lock keeps the screen on permanently</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">// personal task page</p>
+            <ul class="doc-list">
+              <li>Each team member signs in and sees their own tasks</li>
+              <li>Start, complete, edit, or delete tasks from a clean interface</li>
+              <li>All Tasks tab shows the whole team's work in one read-only view</li>
+              <li>Admins can manage team members, user accounts, and projects from Settings</li>
+              <li>Task dependencies with cycle detection — no circular chains</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// tech stack</p>
+        <h2 class="doc-heading">How It's Built</h2>
+        <div class="doc-spec-grid">
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Frontend</span>
+            <span class="doc-spec-val">Vanilla JS — no build step</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Database</span>
+            <span class="doc-spec-val">Firebase Firestore (realtime)</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Auth</span>
+            <span class="doc-spec-val">Firebase Authentication</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Gantt chart</span>
+            <span class="doc-spec-val">Frappe Gantt (via CDN)</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Hosting</span>
+            <span class="doc-spec-val">GitHub Pages</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">TV hardware</span>
+            <span class="doc-spec-val">Raspberry Pi 4 + Chromium kiosk</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// get started</p>
+        <h2 class="doc-heading">How to Set It Up</h2>
+        <ul class="doc-list">
+          <li><strong>Step 1 —</strong> Fork the repo at <a href="https://github.com/akash2000e/FAB_Tasks_Tracker" target="_blank" rel="noopener" style="color:#39ff14;">github.com/akash2000e/FAB_Tasks_Tracker</a></li>
+          <li><strong>Step 2 —</strong> Create a Firebase project at <a href="https://console.firebase.google.com" target="_blank" rel="noopener" style="color:#39ff14;">console.firebase.google.com</a> — enable Firestore and Email/Password Auth</li>
+          <li><strong>Step 3 —</strong> Register a Web app in Firebase and paste the config values into <code style="color:#39ff14; font-family:monospace;">assets/js/config.js</code></li>
+          <li><strong>Step 4 —</strong> Enable GitHub Pages on your repo: Settings → Pages → deploy from branch <code style="color:#39ff14; font-family:monospace;">main</code>, root folder</li>
+          <li><strong>Step 5 —</strong> Open <code style="color:#39ff14; font-family:monospace;">user.html</code> in your browser — on first visit it shows a Create Admin Account form. Fill it in to create the first admin user</li>
+          <li><strong>Step 6 —</strong> From Settings, add team members, create user accounts, and add projects. Then open <code style="color:#39ff14; font-family:monospace;">index.html</code> on the TV screen in fullscreen — it will show the Gantt dashboard live</li>
+        </ul>
+        <p class="doc-text" style="margin-top: 24px;">For a permanent TV display, run Chromium in kiosk mode on a Raspberry Pi 4 pointed at your GitHub Pages URL. The dashboard requests Wake Lock to prevent screen sleep.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Edamana Akash. Built with curiosity.</p>
+  </footer>
+
+</body>
+</html>

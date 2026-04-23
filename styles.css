@@ -696,6 +696,41 @@ a.project-card:hover .card-img {
 }
 
 /* =============================================
+   WEBSITES & TOOLS SECTION
+   ============================================= */
+#webtools {
+  background-color: #111111;
+}
+
+.webtool-card {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.webtool-card:hover {
+  border-color: #39ff14;
+  transform: translateY(-4px);
+}
+
+.webtool-card:hover .card-img {
+  filter: grayscale(0%) brightness(0.85) contrast(1.05);
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.btn-sm {
+  font-size: 10px;
+  padding: 6px 14px;
+  letter-spacing: 2px;
+}
+
+/* =============================================
    CONTACT SECTION
    ============================================= */
 #contact {

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>TaskFlow — E Akash</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2339ff14'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Oxanium:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <a href="../index.html#webtools" class="doc-back">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+
+  <div class="doc-hero" style="background: linear-gradient(135deg, #0d1117 0%, #1a2332 60%, #0a0a0a 100%);">
+    <div class="doc-hero-overlay"></div>
+    <div class="doc-hero-inner">
+      <p class="section-label">// personal tool</p>
+      <h1 class="doc-hero-title">TaskFlow</h1>
+      <p class="doc-hero-sub">A personal task and project tracker built for myself — runs entirely on GitHub Pages with no backend, no database, no monthly cost.</p>
+      <div class="doc-hero-tags">
+        <span class="tag tag-green">Web App</span>
+        <span class="tag tag-blue">React</span>
+        <span class="tag tag-amber">Open Source</span>
+      </div>
+      <div style="margin-top: 24px;">
+        <a href="https://github.com/akash2000e/Taskflow" target="_blank" rel="noopener" class="btn">View on GitHub →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+    <div class="doc-container">
+
+      <section class="doc-section">
+        <p class="section-label">// why it exists</p>
+        <h2 class="doc-heading">Why I Built It</h2>
+        <p class="doc-text">I needed a task tracker I actually owned. Every tool I tried was either too complex, required an account, cost money after the free tier, or stored my data on someone else's server. I wanted something simple — just tasks, projects, and deadlines — that I could open in a browser without logging in, that never loses my data, and that I can fork and change whenever I want.</p>
+        <p class="doc-text" style="margin-top:16px">The solution: store everything as a single JSON file inside a GitHub repository. The app reads and writes that file directly via the GitHub API. No server, no database, no subscriptions. Everything lives in your own repo, under your own account, forever.</p>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// what it does</p>
+        <h2 class="doc-heading">What It Does</h2>
+        <div class="doc-two-col">
+          <div>
+            <p class="section-label">// core</p>
+            <ul class="doc-list">
+              <li>Track tasks under named projects, or as standalone general tasks</li>
+              <li>Set deadlines or leave tasks open-ended — both are tracked differently</li>
+              <li>Priority levels: urgent, normal, someday — automatically ranked</li>
+              <li>Dashboard shows what needs attention today, overdue items, and hours queued</li>
+              <li>Pin any task to today's strip so it stays visible</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">// extras</p>
+            <ul class="doc-list">
+              <li>7-day schedule chart and 14-day Gantt chart built into the dashboard</li>
+              <li>Streak tracker — counts consecutive days with at least one completed task</li>
+              <li>Focus timer — click a project to start timing it, auto-pauses on inactivity</li>
+              <li>Suggested tasks surface what you should work on next, with a reason</li>
+              <li>All data committed to your GitHub repo on every save</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// tech stack</p>
+        <h2 class="doc-heading">How It's Built</h2>
+        <div class="doc-spec-grid">
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Frontend</span>
+            <span class="doc-spec-val">React 18 + Vite</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Styling</span>
+            <span class="doc-spec-val">Tailwind CSS v3</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Charts</span>
+            <span class="doc-spec-val">Recharts + custom Gantt</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Data storage</span>
+            <span class="doc-spec-val">JSON file in your GitHub repo</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Hosting</span>
+            <span class="doc-spec-val">GitHub Pages (free)</span>
+          </div>
+          <div class="doc-spec-item">
+            <span class="doc-spec-key">Backend</span>
+            <span class="doc-spec-val">None — GitHub Contents API only</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <p class="section-label">// get started</p>
+        <h2 class="doc-heading">How to Use It</h2>
+        <ul class="doc-list">
+          <li><strong>Step 1 —</strong> Fork the repo at <a href="https://github.com/akash2000e/Taskflow" target="_blank" rel="noopener" style="color:#39ff14;">github.com/akash2000e/Taskflow</a> to your own GitHub account</li>
+          <li><strong>Step 2 —</strong> Copy <code style="color:#39ff14; font-family:monospace;">data/tasks.example.json</code> to <code style="color:#39ff14; font-family:monospace;">data/tasks.json</code> and commit it to your repo</li>
+          <li><strong>Step 3 —</strong> Go to your repo → Settings → Pages → set source to the <code style="color:#39ff14; font-family:monospace;">gh-pages</code> branch (GitHub Actions creates this automatically after first push)</li>
+          <li><strong>Step 4 —</strong> Create a GitHub Personal Access Token with <code style="color:#39ff14; font-family:monospace;">repo</code> scope at github.com/settings/tokens</li>
+          <li><strong>Step 5 —</strong> Open your Pages URL, enter your GitHub username, repo name, and token on the Setup screen — done</li>
+        </ul>
+        <p class="doc-text" style="margin-top: 24px;">Your token stays only in your browser's localStorage — it never leaves your device. Every task you add, edit, or complete is committed directly to your <code style="color:#39ff14; font-family:monospace;">data/tasks.json</code> file.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Edamana Akash. Built with curiosity.</p>
+  </footer>
+
+</body>
+</html>
