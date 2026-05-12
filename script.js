@@ -135,51 +135,119 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* =============================================
-   TYPEWRITER — hero subtitle (loops with backspace)
+   TYPEWRITER — cycles through multiple phrases
    ============================================= */
 const heroTitle = document.querySelector('.hero-title');
 if (heroTitle) {
-  const fullText = heroTitle.textContent.trim();
-  heroTitle.textContent = '';
+  const phrases = [
+    'Engineer & Maker',
+    'Digital Fabricator',
+    'Always Building',
+  ];
 
+  heroTitle.textContent = '';
   const cursor = document.createElement('span');
   cursor.className = 'type-cursor';
   cursor.setAttribute('aria-hidden', 'true');
-  cursor.textContent = '';
   heroTitle.appendChild(cursor);
 
   const textNode = document.createTextNode('');
   heroTitle.insertBefore(textNode, cursor);
 
   let current = '';
+  let phraseIndex = 0;
   let isTyping = true;
-
   const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   function tick() {
+    const target = phrases[phraseIndex];
     if (isTyping) {
-      if (current.length < fullText.length) {
-        current += fullText[current.length];
+      if (current.length < target.length) {
+        current += target[current.length];
         textNode.nodeValue = current;
-        setTimeout(tick, rand(50, 130));
+        setTimeout(tick, rand(75, 105));
       } else {
-        // Pause at full text, then backspace
-        setTimeout(() => { isTyping = false; tick(); }, rand(1800, 3000));
+        setTimeout(() => { isTyping = false; tick(); }, rand(2000, 2600));
       }
     } else {
       if (current.length > 0) {
         current = current.slice(0, -1);
         textNode.nodeValue = current;
-        setTimeout(tick, rand(80, 150));
+        setTimeout(tick, rand(42, 58));
       } else {
-        // Pause at empty, then retype
-        setTimeout(() => { isTyping = true; tick(); }, rand(300, 700));
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(() => { isTyping = true; tick(); }, rand(380, 480));
       }
     }
   }
 
   tick();
 }
+
+/* =============================================
+   NAME EXPAND — letter-by-letter on hover
+   ============================================= */
+(function () {
+  const heroName  = document.querySelector('.hero-name');
+  const nameExpand = document.querySelector('.name-expand');
+  if (!heroName || !nameExpand) return;
+
+  const expandText = 'damana';
+  let expandCurrent = '';
+  let expandTimer   = null;
+  let typeCursor    = null;
+
+  nameExpand.textContent = ''; // clear static HTML content
+
+  function showCursor() {
+    if (typeCursor) return;
+    typeCursor = document.createElement('span');
+    typeCursor.className = 'name-type-cursor';
+    typeCursor.setAttribute('aria-hidden', 'true');
+    nameExpand.after(typeCursor);
+  }
+
+  function hideCursor() {
+    if (typeCursor) { typeCursor.remove(); typeCursor = null; }
+  }
+
+  function typeIn() {
+    if (expandCurrent.length < expandText.length) {
+      expandCurrent += expandText[expandCurrent.length];
+      nameExpand.textContent = expandCurrent;
+      nameExpand.style.maxWidth = '300px';
+      nameExpand.style.opacity  = '1';
+      expandTimer = setTimeout(typeIn, 48);
+    } else {
+      heroName.classList.add('name-full');
+    }
+  }
+
+  function typeOut() {
+    heroName.classList.remove('name-full');
+    hideCursor();
+    if (expandCurrent.length > 0) {
+      expandCurrent = expandCurrent.slice(0, -1);
+      nameExpand.textContent = expandCurrent;
+      if (expandCurrent.length === 0) {
+        nameExpand.style.maxWidth = '0';
+        nameExpand.style.opacity  = '0';
+      }
+      expandTimer = setTimeout(typeOut, 32);
+    }
+  }
+
+  heroName.addEventListener('mouseenter', () => {
+    clearTimeout(expandTimer);
+    showCursor();
+    typeIn();
+  });
+
+  heroName.addEventListener('mouseleave', () => {
+    clearTimeout(expandTimer);
+    typeOut();
+  });
+}());
 
 /* =============================================
    FAB ACADEMY — counting numbers
@@ -473,4 +541,68 @@ document.querySelectorAll('.btn').forEach(btn => {
   }
 
   setTimeout(run, rnd(2000, 5000));
+})();
+
+/* =============================================
+   CUSTOM CURSOR — crosshair + pixel trail
+   ============================================= */
+(function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  const cur = document.getElementById('cursor');
+  if (!cur) return;
+
+  let mx = -200, my = -200, lastPx = -999, lastPy = -999;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cur.style.left = mx + 'px';
+    cur.style.top  = my + 'px';
+
+    if (Math.hypot(mx - lastPx, my - lastPy) >= 14) {
+      spawnPixel(mx, my);
+      lastPx = mx;
+      lastPy = my;
+    }
+  });
+
+  function spawnPixel(x, y) {
+    const p = document.createElement('div');
+    const size = Math.random() > 0.4 ? 4 : 3;
+    p.className = 'c-pixel';
+    p.style.left    = (x + (Math.random() - 0.5) * 4) + 'px';
+    p.style.top     = (y + (Math.random() - 0.5) * 4) + 'px';
+    p.style.width   = size + 'px';
+    p.style.height  = size + 'px';
+    p.style.opacity = '0.9';
+    document.body.appendChild(p);
+    p.getBoundingClientRect(); // force reflow so CSS transition fires
+    p.style.opacity   = '0';
+    p.style.transform = 'translate(-50%, -50%) scale(0.15)';
+    setTimeout(() => p.remove(), 550);
+  }
+
+  /* Click — 8-pixel burst ring */
+  document.addEventListener('mousedown', () => {
+    const ring = [[-7,-7],[0,-9],[7,-7],[9,0],[7,7],[0,9],[-7,7],[-9,0]];
+    ring.forEach(([dx, dy]) => spawnPixel(mx + dx, my + dy));
+  });
+
+  /* Hover detection — arms open outward */
+  const HOVER = 'a, button, [role="button"], .btn, .pill, input, textarea, select';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(HOVER)) document.body.classList.add('cursor-hover');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(HOVER) && !e.relatedTarget?.closest(HOVER)) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  /* Hide when pointer leaves window */
+  document.addEventListener('mouseleave', e => {
+    if (!e.relatedTarget) cur.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => { cur.style.opacity = ''; });
 })();

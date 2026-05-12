@@ -237,13 +237,25 @@ section {
   max-width: 0;
   opacity: 0;
   vertical-align: bottom;
-  transition: max-width 0.4s ease, opacity 0.4s ease;
   white-space: nowrap;
+  transition: opacity 0.12s ease;
 }
 
-.hero-name:hover .name-expand {
-  max-width: 300px;
-  opacity: 1;
+/* Block cursor that appears while name is typing */
+.name-type-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.75em;
+  background: #39ff14;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blink 0.85s step-end infinite;
+}
+
+/* Glow when full name is revealed */
+.hero-name.name-full {
+  text-shadow: 0 0 40px rgba(57, 255, 20, 0.25);
+  transition: text-shadow 0.3s ease;
 }
 
 .hero-title {
@@ -1280,4 +1292,69 @@ footer p {
 
 .btn-ghost:hover {
   box-shadow: 0 8px 28px rgba(120, 120, 120, 0.1);
+}
+
+/* =============================================
+   CUSTOM CURSOR — crosshair + pixel trail
+   ============================================= */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+
+  #cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+  }
+
+  /* Centre pixel — no border-radius, CRT feel */
+  .c-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #39ff14;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px rgba(57, 255, 20, 0.9);
+    transition: box-shadow 0.15s ease;
+  }
+
+  /* Arms */
+  .c-arm {
+    position: absolute;
+    background: #39ff14;
+    transition: transform 0.15s ease;
+  }
+
+  .c-top, .c-bottom { width: 1px; height: 6px; left: 50%; transform: translateX(-50%); }
+  .c-left, .c-right { height: 1px; width: 6px; top: 50%;  transform: translateY(-50%); }
+
+  .c-top    { bottom: calc(50% + 3px); }
+  .c-bottom { top:    calc(50% + 3px); }
+  .c-left   { right:  calc(50% + 3px); }
+  .c-right  { left:   calc(50% + 3px); }
+
+  /* Hover — arms open outward */
+  body.cursor-hover .c-top    { transform: translateX(-50%) translateY(-5px); }
+  body.cursor-hover .c-bottom { transform: translateX(-50%) translateY(5px);  }
+  body.cursor-hover .c-left   { transform: translateY(-50%) translateX(-5px); }
+  body.cursor-hover .c-right  { transform: translateY(-50%) translateX(5px);  }
+
+  body.cursor-hover .c-dot {
+    box-shadow: 0 0 10px rgba(57, 255, 20, 1), 0 0 22px rgba(57, 255, 20, 0.45);
+  }
+
+  /* Pixel trail & click burst squares */
+  .c-pixel {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    background: #39ff14;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
 }
