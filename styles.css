@@ -1048,6 +1048,45 @@ a.project-card:hover .card-img {
   display: block;
 }
 
+.doc-subheading {
+  font-family: 'Oxanium', sans-serif;
+  font-size: 16px;
+  color: #ccc;
+  margin: 32px 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.doc-caption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.doc-img-full {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  background: #111;
+  border-radius: 4px;
+  border: 1px solid #1a1a1a;
+  margin-top: 20px;
+  display: block;
+}
+
+.doc-video-block {
+  margin-top: 28px;
+}
+.doc-video-block video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #1e1e1e;
+  display: block;
+}
+
 .doc-lightbox {
   position: fixed;
   inset: 0;

@@ -18,7 +18,7 @@
     <i class="fas fa-arrow-left"></i> Back
   </a>
 
-  <div class="doc-hero" style="background-image: url('./3D_PrintedHeadPhone/Media/Me1.jpeg')">
+  <div class="doc-hero" style="background-image: url('./3D_PrintedHeadPhone/Media/Me2.jpeg')">
     <div class="doc-hero-overlay"></div>
     <div class="doc-hero-inner">
       <p class="section-label">// project</p>
@@ -72,15 +72,15 @@
         <p class="section-label">// background</p>
         <h2 class="doc-heading">The Problem</h2>
         <p class="doc-text">The original headband failed at the center — the curved geometry concentrated bending stress exactly at the weakest cross-section. The injection-molded plastic couldn't handle repeated flexing at that point. I documented the failure mode and used it to guide the redesign rather than just copying the same geometry.</p>
-        <div class="doc-img-row">
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/Real%20box.jpg" alt="Original headphone with packaging" loading="lazy">
-            <figcaption>The original — convincing packaging, magnetic ear cups, interchangeable panels</figcaption>
-          </figure>
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/HeadRest%20profile.jpg" alt="Broken headrest showing stress fracture" loading="lazy">
-            <figcaption>Failure point — stress concentrated at the curve's center</figcaption>
-          </figure>
+        <div class="doc-gallery" style="margin-top:24px">
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/Real%20box.jpg" alt="Original headphone with packaging" loading="lazy">
+            <p class="doc-caption">The original — convincing packaging, magnetic ear cups, interchangeable panels</p>
+          </div>
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/HeadRest%20profile.jpg" alt="Broken headrest showing stress fracture" loading="lazy">
+            <p class="doc-caption">Failure point — stress concentrated at the curve's center</p>
+          </div>
         </div>
       </section>
 
@@ -90,19 +90,15 @@
 
         <h3 class="doc-subheading">Attempt 1 — Direct Replica</h3>
         <p class="doc-text">My first approach was to recreate the original headrest geometry as closely as possible so the existing foam padding would fit. I designed it in Rhino, going through multiple iterations to capture the curves from manual measurements. The problem: measuring a curved, foam-padded component with calipers is imprecise, and FDM tolerances couldn't reliably match the injection-molded mating parts.</p>
-        <figure class="doc-figure doc-figure-wide">
-          <img src="./3D_PrintedHeadPhone/Media/Screenshot%202026-05-09%20123032.png" alt="Rhino headrest design iterations" loading="lazy">
-          <figcaption>Rhino design iterations of the headrest — each round required new measurements and reprints</figcaption>
-        </figure>
+        <img class="doc-img-full" src="./3D_PrintedHeadPhone/Media/Screenshot%202026-05-09%20123032.png" alt="Rhino headrest design iterations" loading="lazy">
+        <p class="doc-caption">Rhino design iterations of the headrest — each round required new measurements and reprints</p>
 
         <h3 class="doc-subheading">Attempt 2 — Full Redesign from Scratch</h3>
         <p class="doc-text">I abandoned the replica approach and instead designed the complete headphone around the components worth keeping — the PCB, speakers, ear cups, and magnetic hardware. The side housings required careful curve matching in Rhino so the original magnetic attachment geometry would still work. Once those were solid, I imported them into Fusion 360 and designed the rest of the assembly around them, including a new folding hinge mechanism.</p>
-        <figure class="doc-figure doc-figure-wide">
-          <img src="./3D_PrintedHeadPhone/Media/Screenshot%202026-05-09%20123533.png" alt="Side housing design in Rhino" loading="lazy">
-          <figcaption>Side housing in Rhino — geometry matched to the original magnetic attachment system</figcaption>
-        </figure>
+        <img class="doc-img-full" src="./3D_PrintedHeadPhone/Media/Screenshot%202026-05-09%20123533.png" alt="Side housing design in Rhino" loading="lazy">
+        <p class="doc-caption">Side housing in Rhino — geometry matched to the original magnetic attachment system</p>
 
-        <div class="doc-video-wrap">
+        <div class="doc-video-block">
           <video controls preload="none" poster="./3D_PrintedHeadPhone/Media/Screenshot%202026-05-09%20123533.png">
             <source src="./3D_PrintedHeadPhone/Media/Fusion%20Designe.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -115,36 +111,34 @@
         <p class="section-label">// build</p>
         <h2 class="doc-heading">Manufacturing &amp; Assembly</h2>
         <p class="doc-text">All structural parts were printed in PLA. Most fasteners were salvaged from the original unit. The hinge mechanism required two additional M-size nuts and bolts — the only new hardware purchased for the project. The PCB, battery, speakers, magnets, and all ear cup components were transplanted directly.</p>
-        <p class="doc-text" style="margin-top:12px">One compromise: a single PCB LED had to be removed because it interfered with the 3D-printed button geometry. Everything else was retained.</p>
-        <div class="doc-img-row">
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/PCB.jpg" alt="Original PCB reused in the rebuild" loading="lazy">
-            <figcaption>Original PCB — reused entirely</figcaption>
-          </figure>
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/All%20Parts.jpg" alt="All 3D printed parts before assembly" loading="lazy">
-            <figcaption>All printed parts laid out before assembly</figcaption>
-          </figure>
+        <p class="doc-text">One compromise: a single PCB LED had to be removed because it interfered with the 3D-printed button geometry. Everything else was retained.</p>
+        <div class="doc-gallery" style="margin-top:24px">
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/PCB.jpg" alt="Original PCB reused in the rebuild" loading="lazy">
+            <p class="doc-caption">Original PCB — reused entirely</p>
+          </div>
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/All%20Parts.jpg" alt="All 3D printed parts before assembly" loading="lazy">
+            <p class="doc-caption">All printed parts laid out before assembly</p>
+          </div>
         </div>
-        <figure class="doc-figure doc-figure-wide" style="margin-top:24px">
-          <img src="./3D_PrintedHeadPhone/Media/photo_2026-02-25_14-25-23.jpg" alt="Internal layout with PCB and magnets" loading="lazy">
-          <figcaption>Internal layout — PCB, battery, and magnets positioned before closing</figcaption>
-        </figure>
+        <img class="doc-img-full" src="./3D_PrintedHeadPhone/Media/photo_2026-02-25_14-25-23.jpg" alt="Internal layout with PCB and magnets" loading="lazy">
+        <p class="doc-caption">Internal layout — PCB, battery, and magnets positioned before closing</p>
       </section>
 
       <section class="doc-section">
         <p class="section-label">// result</p>
         <h2 class="doc-heading">Result</h2>
         <p class="doc-text">The rebuilt headphones work correctly — audio, button controls, and magnetic ear cup attachment all function as expected. The folding hinge adds real utility the original never had. They've been in daily use since assembly without issues.</p>
-        <div class="doc-img-row">
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/photo_2026-02-25_13-07-03.jpg" alt="Final assembled headphones" loading="lazy">
-            <figcaption>Finished — fully functional, foldable, built almost entirely from original parts</figcaption>
-          </figure>
-          <figure class="doc-figure">
-            <img src="./3D_PrintedHeadPhone/Media/Me2.jpeg" alt="Wearing the rebuilt headphones" loading="lazy">
-            <figcaption>Daily driving the rebuild</figcaption>
-          </figure>
+        <div class="doc-gallery" style="margin-top:24px">
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/photo_2026-02-25_13-07-03.jpg" alt="Final assembled headphones" loading="lazy">
+            <p class="doc-caption">Finished — fully functional, foldable, built almost entirely from original parts</p>
+          </div>
+          <div>
+            <img class="doc-gallery-img" src="./3D_PrintedHeadPhone/Media/Me1.jpeg" alt="Wearing the rebuilt headphones" loading="lazy">
+            <p class="doc-caption">Daily driving the rebuild</p>
+          </div>
         </div>
       </section>
 
